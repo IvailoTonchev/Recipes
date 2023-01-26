@@ -1,0 +1,59 @@
+﻿@model Recipes.Models.InputRecipeModel
+
+<h1> Add Recipe </h1>
+<hr />
+<form method="POST" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="Name" class="control-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="PreparationTime" class="control-label"></label>
+        <input asp-for="PreparationTime" class="form-control" />
+        <span asp-validation-for="PreparationTime" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="CookingTime" class="control-label"></label>
+        <input asp-for="CookingTime" class="form-control" />
+        <span asp-validation-for="CookingTime" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="PortionCount" class="control-label"></label>
+        <input asp-for="PortionCount" class="form-control" />
+        <span asp-validation-for="PortionCount" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Description" class="control-label"></label>
+        <input asp-for="Description" class="form-control" />
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="CategoryId" class="control-label"></label>
+        <select asp-for="CategoryId" class="form-control" asp-items="@Model.Categories"></select>
+    </div>
+    <div class="form-group">
+        <label asp-for="Image" class="control-label"></label>
+        <input asp-for="Image" class="form-control" />
+        <span asp-validation-for="Image" class="text-danger"></span>
+    </div>
+    <div id="ingredient" class="form-group">
+        <label asp-for="Ingredients" class="control-label"></label>
+        <a class="btn btn-success" onclick="AddIngredient()">+</a>
+    </div>
+
+    <input type="submit" value="Add Recipe"/>
+</form>
+
+@section Scripts
+{
+    <script>
+        var ingredientIndex = 0;
+        function AddIngredient() {
+            $("#ingredient").
+                append("<div> Name: <input type='text' name='Ingredients[" + ingredientIndex + "].Name'/> Quantity: <input type='text' name='Ingredients[" + ingredientIndex + "].Quantity'/>  </div > ");
+            ingredientIndex++;
+        }
+    </script>
+
+}

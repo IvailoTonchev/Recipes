@@ -1,0 +1,132 @@
+﻿@model Recipes.Models.InputRecipeModel
+
+<section class="single-recipe-wrap-layout1 padding-top-74 padding-bottom-50">
+    <div class="container">
+        <div class="row gutters-60">
+            <div class="col-lg-8">
+                <div class="single-recipe-layout1">
+                    <div class="ctg-name">@Model.CategoryName</div>
+                    <h2 class="item-title"> @Model.Name </h2>
+                    <div class="row mb-4">
+                        <div class="col-xl-9 col-12">
+                            <ul class="entry-meta">
+                                <li class="single-meta">
+                                    <a href="#">
+                                        <i class="far fa-calendar-alt"></i>Nov 14,
+                                        2018
+                                    </a>
+                                </li>
+                                <li class="single-meta">
+                                    <a href="#">
+                                        <i class="fas fa-user"></i>by <span>
+                                            Kazi
+                                            Fahim
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="single-meta">
+                                    <ul class="item-rating">
+                                        <li class="star-fill"><i class="fas fa-star"></i></li>
+                                        <li class="star-fill"><i class="fas fa-star"></i></li>
+                                        <li class="star-fill"><i class="fas fa-star"></i></li>
+                                        <li class="star-fill"><i class="fas fa-star"></i></li>
+                                        <li class="star-empty"><i class="fas fa-star"></i></li>
+                                        <li><span>9<span> / 10</span></span> </li>
+                                    </ul>
+                                </li>
+                                <li class="single-meta">
+                                    <a href="#">
+                                        <i class="fas fa-heart"></i><span>02</span>
+                                        Likes
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <div class="item-figure">
+                        <img src=@Model.ImgURL>
+                    </div>
+                    <div class="item-feature">
+                        <ul>
+                            <li>
+                                <div class="feature-wrap">
+                                    <div class="media">
+                                        <div class="feature-icon">
+                                            <i class="far fa-clock"></i>
+                                        </div>
+                                        <div class="media-body space-sm">
+                                            <div class="feature-title">PREP TIME</div>
+                                            <div class="feature-sub-title">@Model.PreparationTime Mins</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="feature-wrap">
+                                    <div class="media">
+                                        <div class="feature-icon">
+                                            <i class="fas fa-utensils"></i>
+                                        </div>
+                                        <div class="media-body space-sm">
+                                            <div class="feature-title">COOK TIME</div>
+                                            <div class="feature-sub-title">@Model.CookingTime Mins</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="feature-wrap">
+                                    <div class="media">
+                                        <div class="feature-icon">
+                                            <i class="fas fa-users"></i>
+                                        </div>
+                                        <div class="media-body space-sm">
+                                            <div class="feature-title">PORTION</div>
+                                            <div class="feature-sub-title">@Model.PortionCount People</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="feature-wrap">
+                                    <div class="media">
+                                        <div class="feature-icon">
+                                            <i class="far fa-eye"></i>
+                                        </div>
+                                        <div class="media-body space-sm">
+                                            <div class="feature-title"> </div>
+                                            <div class="feature-sub-title"> </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <p class="item-description">
+                        @Model.Description
+                    </p>
+                    
+                    <div class="making-elements-wrap">
+                        <div class="row">
+                            <div class="col-xl-6 col-12">
+                                <div class="ingridients-wrap">
+                                    <h3 class="item-title"><i class="fas fa-list-ul"></i>Ingredients</h3>
+                              
+                                    @foreach (var item in Model.Ingredients)
+                                    {
+                                <div class="checkbox checkbox-primary">
+                                    <input id="checkbox1" type="checkbox">
+                                    <label for="checkbox1">@item.Name  @item.Quantity</label>
+                                </div>
+                                    }
+                            </div>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
